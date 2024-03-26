@@ -1,6 +1,8 @@
-const Header = () => {
+import "./Navbar.css";
+
+const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
       <ul>
         <li>Home</li>
         <li>Login</li>
@@ -10,4 +12,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
