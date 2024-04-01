@@ -4,6 +4,7 @@ import "./Main.css";
 import Movies from "../Movies/Movies";
 import toyotaImage from "../../assets/toyota.jpeg";
 import Hero from "../Hero/Hero";
+import Counter from "../Counter/Counter";
 
 const Main = () => {
   const datas = [

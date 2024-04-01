@@ -1,11 +1,14 @@
+import { NavLink } from "react-router-dom";
 import "./Movie.css";
 
 const Movie = (props) => {
-  const { title, year, genre, poster } = props;
+  const { title, year, genre, poster, id } = props;
   return (
     <div className="movie">
-      <img src={poster} alt="" />
-      <h3 className="title">{title}</h3>
+      <img src={`https://image.tmdb.org/t/p/w300/${poster}`} alt="" />
+      <h3 className="title">
+        <NavLink to={`/detail/${id}`}>{title}</NavLink>
+      </h3>
       <p>{year}</p>
       <p>{genre}</p>
     </div>

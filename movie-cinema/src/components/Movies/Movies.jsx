@@ -1,42 +1,46 @@
+import { useEffect, useState } from "react";
 import Movie from "../Movie/Movie";
 import "./Movies.css";
+import AddMovieForm from "../AddMovieForm/AddMovieForm";
+import { getMovieList } from "../../api";
 
 const Movies = () => {
-  const datas = [
-    {
-      title: "Judul film 1",
-      year: 2022,
+  //  nilai yang pertama itu state dan yang kedua itu method
+  const [datas, setDatas] = useState([]);
+
+  const handleClick = () => {
+    const movie = {
+      title: "Amazing Spiderman",
+      year: 2012,
+      poster: "https://picsum.photos/200",
       genre: "Action",
-      poster: "https://picsum.photos/200",
-    },
-    {
-      title: "Judul film 2",
-      year: 2021,
-      genre: "Comedy",
-      poster: "https://picsum.photos/200",
-    },
-    {
-      title: "Judul film 3",
-      year: 2018,
-      genre: "Romance",
-      poster: "https://picsum.photos/200",
-    },
-  ];
+    };
+    setDatas([...datas, movie]);
+  };
+
+  useEffect(() => {
+    // untuk menangkap data result api
+    getMovieList().then((result) => {
+      setDatas(result);
+    });
+  }, []);
 
   return (
     <div>
+      <AddMovieForm onAddMovie={(data) => setDatas([...datas, data])} />
       <h2>Latest movies</h2>
       <div className="movies-container">
         {datas.map((data) => {
           return (
             <Movie
+              id={data.id}
               title={data.title}
-              year={data.year}
-              genre={data.genre}
-              poster={data.poster}
+              year={data.release_date}
+              poster={data.poster_path}
             />
           );
         })}
+        <button onClick={handleClick}>Add Movie</button>
       </div>
     </div>
   );
