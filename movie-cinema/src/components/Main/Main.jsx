@@ -7,37 +7,11 @@ import Hero from "../Hero/Hero";
 import Counter from "../Counter/Counter";
 
 const Main = () => {
-  const datas = [
-    {
-      nama: "Ucup",
-      member: "Platinum",
-    },
-    {
-      nama: "Ujeng",
-      member: "Gold",
-    },
-    {
-      nama: "Hariono",
-      member: "Silver",
-    },
-    {
-      nama: "Susmanto",
-      member: "Gold",
-    },
-    {
-      nama: "Ucup",
-      member: "Bronze",
-    },
-    {
-      nama: "Ucup",
-      member: "Platinum",
-    },
-  ];
   return (
     <div className="content">
       <Hero />
       <Movies />
-      {datas.map((data) => {
+      {/* {datas.map((data) => {
         return (
           <User
             nama={data.nama}
@@ -45,7 +19,7 @@ const Main = () => {
             message={() => alert(data.nama)}
           />
         );
-      })}
+      })} */}
     </div>
   );
 };

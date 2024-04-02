@@ -13,7 +13,7 @@ import Detail from "./pages/movie/Detail";
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <BrowserRouter>
         <Navbar />
         <Routes>

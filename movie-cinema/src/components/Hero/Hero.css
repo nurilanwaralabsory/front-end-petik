@@ -1,15 +1,12 @@
 /* Small screen */
-
 .hero {
-  display: grid;
+  display: flex;
   flex-direction: column;
   text-align: center;
 }
 
 .hero-left {
-}
-
-.hero-right {
+  margin-bottom: 1rem;
 }
 
 .hero-genre {
@@ -25,6 +22,7 @@
 
 .hero-button {
   padding: 0.8rem 2rem;
+  width: 50px;
   border: none;
   border-radius: 10px;
   background-color: #4361ee;
@@ -35,4 +33,19 @@
   max-width: 100%;
   height: auto;
   border-radius: 25px;
+}
+
+/* Large screen */
+@media (min-width: 992px) {
+  .hero {
+    margin: 0 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align-last: left;
+  }
+
+  .hero-left {
+    flex-basis: 40%;
+  }
 }

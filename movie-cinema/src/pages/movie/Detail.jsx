@@ -1,12 +1,28 @@
 import { useParams } from "react-router-dom";
+import Movie from "../../components/Movie/Movie";
+import { getDetailMovie } from "../../api";
+import { useState, useEffect } from "react";
 
 const Detail = () => {
-  // menggunakan useParams untuk menangkap parameter id dari URL
   let { id } = useParams();
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    getDetailMovie(id).then((result) => {
+      setDatas(result);
+    });
+  }, []);
+
   return (
     <div>
-      <h1>Details</h1>
-      <p>Parameter id : {id}</p>
+      <h2>Detail</h2>
+      <div className="movies-container">
+        <Movie
+          title={datas.title}
+          poster={datas.poster_path}
+          overview={datas.overview}
+        />
+      </div>
     </div>
   );
 };
