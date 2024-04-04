@@ -1,30 +1,17 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Products from "./components/Products";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import "./index.css";
+import Hero from "./components/Hero/Hero";
+import AddProductForm from "./components/AddProductForm/AddProductFrom";
 
 function App() {
-  const products = [
-    {
-      nama: "Kursi gaming Fantech",
-      harga: 2350000,
-    },
-    {
-      nama: "Poco X6 Pro",
-      harga: 4999000,
-    },
-    {
-      nama: "SSD Seagate 1TB Gen 4",
-      harga: 2450000,
-    },
-  ];
   return (
     <>
       <Header />
-      <div className="flex flex-row mx-5 gap-x-4 my-10">
-        {products.map((product) => {
-          return <Products nama={product.nama} harga={product.harga} />;
-        })}
-      </div>
+      <Hero />
+      <Main />
+      <Footer />
     </>
   );
 }
